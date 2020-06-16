@@ -20,6 +20,7 @@ function startTimer() {
 startBtn.addEventListener("click", function () {
 
     if (event.target.matches("button")) {
+        window.location = "questions.html"
         startTimer();
     }
 });
