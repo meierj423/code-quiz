@@ -1,5 +1,6 @@
 var timerEl = document.querySelector(".navbar-text");
 var startBtn = document.getElementById("start");
+var intro = document.querySelector("#main");
 // timerEl.textContent = "Time: "
 
 // might have to change function name later 
@@ -20,7 +21,7 @@ function startTimer() {
 startBtn.addEventListener("click", function () {
 
     if (event.target.matches("button")) {
-        window.location = "questions.html"
+        intro.textContent = "";
         startTimer();
     }
 });
