@@ -15,7 +15,10 @@ function startTimer() {
   var timeInterval = setInterval(function () {
     timerEl.textContent = timeLeft + " seconds remaining";
     timeLeft--;
-
+    
+    if (timeLeft < 0) {
+      timeLeft = 0;
+    }
     if (timeLeft === 0) {
       clearInterval(timeInterval);
       timerEl.textContent = "Time's Up!";
@@ -396,8 +399,8 @@ startBtn.addEventListener("click", function () {
                                   "click",
                                   function () {
                                     if (event.target.matches("button")) {
-                                        timeLeft = timeLeft - 10;
-                                        alert("Wrong!!");
+                                      timeLeft = timeLeft - 10;
+                                      alert("Wrong!!");
                                       //   score--;
                                       // timeLeft - 10;
                                     }
@@ -557,8 +560,8 @@ startBtn.addEventListener("click", function () {
                                                 if (
                                                   event.target.matches("button")
                                                 ) {
-                                                    timeLeft = timeLeft - 10;
-                                                    alert("Wrong!!");
+                                                  timeLeft = timeLeft - 10;
+                                                  alert("Wrong!!");
                                                   //   score--;
                                                   // timeLeft - 10;
                                                 }
@@ -570,8 +573,8 @@ startBtn.addEventListener("click", function () {
                                                 if (
                                                   event.target.matches("button")
                                                 ) {
-                                                    timeLeft = timeLeft - 10;
-                                                    alert("Wrong!!");
+                                                  timeLeft = timeLeft - 10;
+                                                  alert("Wrong!!");
                                                   //   score--;
                                                 }
                                               }
@@ -616,8 +619,8 @@ startBtn.addEventListener("click", function () {
                                   "click",
                                   function () {
                                     if (event.target.matches("button")) {
-                                        timeLeft = timeLeft - 10;
-                                        alert("Wrong!!");
+                                      timeLeft = timeLeft - 10;
+                                      alert("Wrong!!");
                                       //   score--;
                                     }
                                   }
@@ -626,8 +629,8 @@ startBtn.addEventListener("click", function () {
                                   "click",
                                   function () {
                                     if (event.target.matches("button")) {
-                                        timeLeft = timeLeft - 10;
-                                        alert("Wrong!");
+                                      timeLeft = timeLeft - 10;
+                                      alert("Wrong!");
                                       //   score--;
                                     }
                                   }
