@@ -15,8 +15,7 @@ This application is a timed quiz on the fundamentals of JavaScript
         -When the user enters their intials and presses "OK", their initials appear along with their score.
 -The user may take the quiz again by clicking "Home" on the navbar.
 
-
-
+See URL for demo: https://meierj423.github.io/code-quiz/
 
 ![](assets/code-quiz-home.png)
 ![](assets/code-quiz-question1.png)
