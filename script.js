@@ -1,18 +1,16 @@
 var timerEl = document.querySelector(".navbar-text");
 var startBtn = document.getElementById("start");
 var intro = document.querySelector("#main");
-var inst = document.getElementById("instructions");
 var options = document.getElementById("options");
+var highscoresEl = document.getElementById("highscores");
 
 // consider setAttribute
 // options.textContent = "";
 
-inst.textContent =
-  "You will be given 60 seconds to answer as many multiple-choice questions on the fundamentals of JavaScript. For every incorrect answer, 10 seconds will be deducted from your time.";
-
 // might have to change function name later
+var timeLeft = 0;
 function startTimer() {
-  var timeLeft = 60;
+  timeLeft = 60;
 
   var timeInterval = setInterval(function () {
     timerEl.textContent = timeLeft + " seconds remaining";
@@ -21,6 +19,7 @@ function startTimer() {
     if (timeLeft === 0) {
       clearInterval(timeInterval);
       timerEl.textContent = "Time's Up!";
+      window.location.href = "highscores.html";
     }
   }, 1000);
 }
@@ -68,15 +67,16 @@ startBtn.addEventListener("click", function () {
 
     choiceOne.addEventListener("click", function () {
       if (event.target.matches("button")) {
+        timeLeft = timeLeft - 10;
         alert("Wrong!!");
-        score--;
-        // timeLeft - 10;
+        // score--;
       }
     });
     choiceTwo.addEventListener("click", function () {
       if (event.target.matches("button")) {
+        timeLeft = timeLeft - 10;
         alert("Wrong!!");
-        score--;
+        // score--;
       }
     });
     choiceThree.addEventListener("click", function () {
@@ -84,6 +84,7 @@ startBtn.addEventListener("click", function () {
         alert("Correct!");
         score++;
         main.innerHTML = "";
+        localStorage.setItem("Highscore", score);
 
         // SECOND QUESTION
         var questionEl = document.createElement("div");
@@ -116,15 +117,17 @@ startBtn.addEventListener("click", function () {
 
         choiceOne.addEventListener("click", function () {
           if (event.target.matches("button")) {
+            timeLeft = timeLeft - 10;
             alert("Wrong!!");
-            score--;
+            // score--;
             // timeLeft - 10;
           }
         });
         choiceTwo.addEventListener("click", function () {
           if (event.target.matches("button")) {
+            timeLeft = timeLeft - 10;
             alert("Wrong!!");
-            score--;
+            // score--;
           }
         });
         choiceThree.addEventListener("click", function () {
@@ -132,6 +135,7 @@ startBtn.addEventListener("click", function () {
             alert("Correct!");
             score++;
             main.innerHTML = "";
+            localStorage.setItem("Highscore", score);
 
             // THIRD QUESTION
             var questionEl = document.createElement("div");
@@ -167,6 +171,7 @@ startBtn.addEventListener("click", function () {
                 alert("Correct!!");
                 score++;
                 main.innerHTML = "";
+                localStorage.setItem("Highscore", score);
 
                 // FOURTH QUESTION
                 var questionEl = document.createElement("div");
@@ -192,8 +197,9 @@ startBtn.addEventListener("click", function () {
 
                 choiceOne.addEventListener("click", function () {
                   if (event.target.matches("button")) {
+                    timeLeft = timeLeft - 10;
                     alert("Wrong!!");
-                    score--;
+                    // score--;
                     // timeLeft - 10;
                   }
                 });
@@ -202,6 +208,7 @@ startBtn.addEventListener("click", function () {
                     alert("Correct!");
                     score++;
                     main.innerHTML = "";
+                    localStorage.setItem("Highscore", score);
 
                     // FIFTH QUESTION
                     var questionEl = document.createElement("div");
@@ -244,6 +251,7 @@ startBtn.addEventListener("click", function () {
                         alert("Correct!");
                         score++;
                         main.innerHTML = "";
+                        localStorage.setItem("Highscore", score);
 
                         // SIXTH QUESTION
                         var questionEl = document.createElement("div");
@@ -279,6 +287,7 @@ startBtn.addEventListener("click", function () {
                             alert("Correct!");
                             score++;
                             main.innerHTML = "";
+                            localStorage.setItem("Highscore", score);
 
                             // SEVENTH QUESTION
                             var questionEl = document.createElement("div");
@@ -311,15 +320,17 @@ startBtn.addEventListener("click", function () {
 
                             choiceOne.addEventListener("click", function () {
                               if (event.target.matches("button")) {
+                                timeLeft = timeLeft - 10;
                                 alert("Wrong!!");
-                                score--;
+                                // score--;
                                 // timeLeft - 10;
                               }
                             });
                             choiceTwo.addEventListener("click", function () {
                               if (event.target.matches("button")) {
+                                timeLeft = timeLeft - 10;
                                 alert("Wrong!!");
-                                score--;
+                                // score--;
                               }
                             });
                             choiceThree.addEventListener("click", function () {
@@ -327,6 +338,7 @@ startBtn.addEventListener("click", function () {
                                 alert("Correct!");
                                 score++;
                                 main.innerHTML = "";
+                                localStorage.setItem("Highscore", score);
 
                                 // EIGTH QUESTION
                                 var questionEl = document.createElement("div");
@@ -384,8 +396,9 @@ startBtn.addEventListener("click", function () {
                                   "click",
                                   function () {
                                     if (event.target.matches("button")) {
-                                      alert("Wrong!!");
-                                      score--;
+                                        timeLeft = timeLeft - 10;
+                                        alert("Wrong!!");
+                                      //   score--;
                                       // timeLeft - 10;
                                     }
                                   }
@@ -397,6 +410,7 @@ startBtn.addEventListener("click", function () {
                                       alert("Correct!");
                                       score++;
                                       main.innerHTML = "";
+                                      localStorage.setItem("Highscore", score);
 
                                       // NINTH QUESTION
                                       var questionEl = document.createElement(
@@ -456,8 +470,9 @@ startBtn.addEventListener("click", function () {
                                         "click",
                                         function () {
                                           if (event.target.matches("button")) {
+                                            timeLeft = timeLeft - 10;
                                             alert("Wrong!!");
-                                            score--;
+                                            // score--;
                                             // timeLeft - 10;
                                           }
                                         }
@@ -466,8 +481,9 @@ startBtn.addEventListener("click", function () {
                                         "click",
                                         function () {
                                           if (event.target.matches("button")) {
+                                            timeLeft = timeLeft - 10;
                                             alert("Wrong!!");
-                                            score--;
+                                            // score--;
                                           }
                                         }
                                       );
@@ -478,6 +494,10 @@ startBtn.addEventListener("click", function () {
                                             alert("Correct!");
                                             score++;
                                             main.innerHTML = "";
+                                            localStorage.setItem(
+                                              "Highscore",
+                                              score
+                                            );
 
                                             // TENTH QUESTION
                                             var questionEl = document.createElement(
@@ -495,7 +515,8 @@ startBtn.addEventListener("click", function () {
                                             var choiceOne = document.createElement(
                                               "button"
                                             );
-                                            choiceOne.innerHTML = "while (i <= 10; i++)";
+                                            choiceOne.innerHTML =
+                                              "while (i <= 10; i++)";
                                             firstchoiceDiv.appendChild(
                                               choiceOne
                                             );
@@ -508,7 +529,8 @@ startBtn.addEventListener("click", function () {
                                             var choiceTwo = document.createElement(
                                               "button"
                                             );
-                                            choiceTwo.innerHTML = "while i = 1 to 10";
+                                            choiceTwo.innerHTML =
+                                              "while i = 1 to 10";
                                             secondchoiceDiv.appendChild(
                                               choiceTwo
                                             );
@@ -521,7 +543,8 @@ startBtn.addEventListener("click", function () {
                                             var choiceThree = document.createElement(
                                               "button"
                                             );
-                                            choiceThree.innerHTML = "while (i <= 10)";
+                                            choiceThree.innerHTML =
+                                              "while (i <= 10)";
                                             thirdchoiceDiv.appendChild(
                                               choiceThree
                                             );
@@ -534,8 +557,9 @@ startBtn.addEventListener("click", function () {
                                                 if (
                                                   event.target.matches("button")
                                                 ) {
-                                                  alert("Wrong!!");
-                                                  score--;
+                                                    timeLeft = timeLeft - 10;
+                                                    alert("Wrong!!");
+                                                  //   score--;
                                                   // timeLeft - 10;
                                                 }
                                               }
@@ -546,8 +570,9 @@ startBtn.addEventListener("click", function () {
                                                 if (
                                                   event.target.matches("button")
                                                 ) {
-                                                  alert("Wrong!!");
-                                                  score--;
+                                                    timeLeft = timeLeft - 10;
+                                                    alert("Wrong!!");
+                                                  //   score--;
                                                 }
                                               }
                                             );
@@ -560,7 +585,14 @@ startBtn.addEventListener("click", function () {
                                                   alert("Correct!");
                                                   score++;
                                                   main.innerHTML = "";
-                                                  alert(score);
+                                                  localStorage.setItem(
+                                                    "Highscore",
+                                                    score
+                                                  );
+                                                  window.location.href =
+                                                    "highscores.html";
+
+                                                  //   alert(score);
                                                 }
                                               }
                                             );
@@ -571,8 +603,9 @@ startBtn.addEventListener("click", function () {
                                         "click",
                                         function () {
                                           if (event.target.matches("button")) {
+                                            timeLeft = timeLeft - 10;
                                             alert("Wrong!");
-                                            score--;
+                                            // score--;
                                           }
                                         }
                                       );
@@ -583,8 +616,9 @@ startBtn.addEventListener("click", function () {
                                   "click",
                                   function () {
                                     if (event.target.matches("button")) {
-                                      alert("Wrong!!");
-                                      score--;
+                                        timeLeft = timeLeft - 10;
+                                        alert("Wrong!!");
+                                      //   score--;
                                     }
                                   }
                                 );
@@ -592,8 +626,9 @@ startBtn.addEventListener("click", function () {
                                   "click",
                                   function () {
                                     if (event.target.matches("button")) {
-                                      alert("Wrong!");
-                                      score--;
+                                        timeLeft = timeLeft - 10;
+                                        alert("Wrong!");
+                                      //   score--;
                                     }
                                   }
                                 );
@@ -603,14 +638,16 @@ startBtn.addEventListener("click", function () {
                         });
                         choiceTwo.addEventListener("click", function () {
                           if (event.target.matches("button")) {
+                            timeLeft = timeLeft - 10;
                             alert("Wrong!!");
-                            score--;
+                            // score--;
                           }
                         });
                         choiceThree.addEventListener("click", function () {
                           if (event.target.matches("button")) {
+                            timeLeft = timeLeft - 10;
                             alert("Wrong!!");
-                            score--;
+                            // score--;
                             // timeLeft - 10;
                           }
                         });
@@ -618,21 +655,24 @@ startBtn.addEventListener("click", function () {
                     });
                     choiceTwo.addEventListener("click", function () {
                       if (event.target.matches("button")) {
+                        timeLeft = timeLeft - 10;
                         alert("Wrong!!");
-                        score--;
+                        // score--;
                       }
                     });
                     choiceThree.addEventListener("click", function () {
                       if (event.target.matches("button")) {
+                        timeLeft = timeLeft - 10;
                         alert("Wrong!!");
-                        score--;
+                        // score--;
                         // timeLeft - 10;
                       }
                     });
                     choiceFour.addEventListener("click", function () {
                       if (event.target.matches("button")) {
+                        timeLeft = timeLeft - 10;
                         alert("Wrong!");
-                        score--;
+                        // score--;
                       }
                     });
                   }
@@ -641,14 +681,16 @@ startBtn.addEventListener("click", function () {
             });
             choiceTwo.addEventListener("click", function () {
               if (event.target.matches("button")) {
+                timeLeft = timeLeft - 10;
                 alert("Wrong!!");
-                score--;
+                // score--;
               }
             });
             choiceThree.addEventListener("click", function () {
               if (event.target.matches("button")) {
+                timeLeft = timeLeft - 10;
                 alert("Wrong!");
-                score--;
+                // score--;
               }
             });
           }
@@ -657,14 +699,13 @@ startBtn.addEventListener("click", function () {
     });
     choiceFour.addEventListener("click", function () {
       if (event.target.matches("button")) {
+        timeLeft = timeLeft - 10;
         alert("Wrong!");
-        score--;
+        // score--;
       }
     });
 
     startTimer();
-    localStorage.setItem("Highscore", score);
-    var highscore = localStorage.getItem("Highscore");
   }
 });
 

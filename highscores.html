@@ -1,32 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
 
     <title>Highscores</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- This Navbar is temporary -->
     <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand font-weight-bold" href="index.html">Home</a>
-        <span class="navbar-text"></span>
+      <a class="navbar-brand font-weight-bold" href="index.html">Home</a>
+      <span class="navbar-text"></span>
     </nav>
 
     <main>
-        <section>
-            <div class="container">
-                <h1>Highscores</h1>
-            </div>
-        </section>
+      <section id="highscoreSection">
+        <div id="highscores" class="container">
+          <h1>Highscores</h1>
+        </div>
+
+        <button type="button" id="report">
+          Click here to enter your score!
+        </button>
+      </section>
     </main>
 
-    <script src="script.js"></script>
-</body>
+    <script>
+      var highscoreSection = document.getElementById("highscoreSection");
+      const nameDiv = document.createElement("div");
+      const highscoreDiv = document.createElement("div");
+      var reportBtn = document.getElementById("report");
 
+      reportBtn.addEventListener("click", function () {
+      if (event.target.matches("button")) {
+      var initials = prompt("Please enter your initials");
+      console.log(initials);
+      
+      highscoreSection.appendChild(nameDiv);
+      highscoreSection.appendChild(highscoreDiv);
+      var storedHighscore = localStorage.getItem("Highscore");
+      var name = nameDiv.innerHTML = "Initials : " + initials;
+      var highscore = highscoreDiv.innerHTML = "Score: " + storedHighscore;
+      
+
+    //   Styles
+      highscoreDiv.setAttribute("style", "background-color: red;");
+      highscoreDiv.style.width = "38%";
+
+      }});
+
+    </script>
+  </body>
 </html>
